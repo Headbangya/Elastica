@@ -71,18 +71,13 @@ class Response
         $this->_status = $responseStatus;
     }
 
-    /**
-     * Error message.
-     *
-     * @return string Error message
-     */
     public function getError()
     {
         $message = '';
         $response = $this->getData();
 
         if (isset($response['error'])) {
-            $message = $response['error'];
+            $message = $response['error']['reason'];
         }
 
         return $message;

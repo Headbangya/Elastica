@@ -31,7 +31,8 @@ class ResponseException extends \RuntimeException implements ExceptionInterface
     {
         $this->_request = $request;
         $this->_response = $response;
-        parent::__construct('Elasticsearch done fucked up.');
+        $error = $response->getError();
+        parent::__construct($error);
     }
 
     /**
